@@ -3,9 +3,35 @@ import { BACKGROUND_IMAGE, BUTTON_TEXT } from "@/constants/index";
 import Button from "@/components/common/Button";
 import Card from "@/components/common/Card";
 import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
+import axios from "axios";
+import { useEffect, useState } from "react";
+// import PropertyCard from "@/components/property/PropertyCard";
 
 
 export default function Home() {
+
+   const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const response = await axios.get("/api/properties");
+        setProperties(response.data);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <main className="lg:px-10 px-2 overflow-x-none">
       <section
@@ -70,23 +96,11 @@ export default function Home() {
 
         </div>
       </section>
-
-      <section className="w-full  py-6 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
-        {PROPERTYLISTINGSAMPLE.map((property, index) => (
-          <Card
-            key={index}
-            title={property.name}
-            price_perNight={property.price}
-            city={property.address.city}
-            image={property.image}
-            bedrooms={Number(property.offers.bed)}
-            bathrooms={Number(property.offers.shower)}
-            number_of_guests={property.offers.occupants}
-            rating={property.rating}
-            features={property.category}
-          />
-        ))}
-      </section>
+<div className="grid grid-cols-3 gap-4">
+      {properties.map((property) => (
+        <PropertyCard key={property.id} property={property} />
+      ))}
+    </div>
     </main>
   );
 }
