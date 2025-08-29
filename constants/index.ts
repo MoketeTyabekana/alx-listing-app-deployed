@@ -1,3 +1,5 @@
+import { PropertyProps } from "@/interfaces";
+
 
 export const BUTTON_TEXT = {
   all: "All",
@@ -108,6 +110,7 @@ export const UI_TEXT={
 
 export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
   {
+     id: "1",
     name: "Villa Ocean Breeze",
     address: {
       state: "Seminyak",
@@ -126,6 +129,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+     id: "2",
     name: "Mountain Escape Chalet",
     address: {
       state: "Aspen",
@@ -144,6 +148,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "30"
   },
   {
+     id: "3",
     name: "Cozy Desert Retreat",
     address: {
       state: "Palm Springs",
@@ -162,6 +167,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+     id: "4",
     name: "City Lights Penthouse",
     address: {
       state: "New York",
@@ -180,6 +186,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "15"
   },
   {
+     id: "5",
     name: "Riverside Cabin",
     address: {
       state: "Queenstown",
@@ -198,6 +205,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "20"
   },
   {
+     id: "6",
     name: "Modern Beachfront Villa",
     address: {
       state: "Sidemen",
@@ -215,7 +223,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image4.png",
     discount: ""
   },
-  {
+  { id: "7",
     name: "Lakeside Chalet",
     address: {
       state: "Banff",
@@ -233,7 +241,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image5.png",
     discount: "10"
   },
-  {
+  { id: "7",
     name: "Tropical Garden Villa",
     address: {
       state: "Koh Samui",
@@ -251,7 +259,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image6.png",
     discount: "25"
   },
-  {
+  { id: "8",
     name: "Urban Loft",
     address: {
       state: "Berlin",
@@ -269,7 +277,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image7.png",
     discount: ""
   },
-  {
+  { id: "9",
     name: "Secluded Forest Cabin",
     address: {
       state: "Whistler",
@@ -287,7 +295,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image8.png",
     discount: "40"
   },
-  {
+  { id: "10",
     name: "Cliffside Villa",
     address: {
       state: "Amalfi",
@@ -305,7 +313,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image9.png",
     discount: "50"
   },
-  {
+  { id: "11",
     name: "Coastal Escape Villa",
     address: {
       state: "Noosa",
@@ -323,7 +331,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image18.png",
     discount: ""
   },
-  {
+  { id: "12",
     name: "Historical Villa",
     address: {
       state: "Florence",
@@ -341,7 +349,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image17.png",
     discount: "35"
   },
-  {
+  { id: "13",
     name: "Downtown Apartment",
     address: {
       state: "Tokyo",
@@ -359,7 +367,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image16.png",
     discount: ""
   },
-  {
+  { id: "14",
     name: "Luxury Safari Lodge",
     address: {
       state: "Serengeti",
@@ -377,7 +385,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image15.png",
     discount: "20"
   },
-  {
+  {  id: "15",
     name: "Countryside Cottage",
     address: {
       state: "Cotswolds",
@@ -395,7 +403,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image10.png",
     discount: "25"
   },
-  {
+  { id: "16",
     name: "Riverfront Mansion",
     address: {
       state: "Paris",
@@ -413,7 +421,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image13.png",
     discount: "30"
   },
-  {
+  { id: "17",
     name: "Ski Chalet",
     address: {
       state: "Zermatt",
@@ -431,7 +439,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image12.png",
     discount: ""
   },
-  {
+  { id: "18",
     name: "Island Paradise Villa",
     address: {
       state: "Mahe",
@@ -449,7 +457,7 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     image: "/assets/image11.png",
     discount: "60"
   },
-  {
+  { id: "19",
     name: "Clifftop Retreat",
     address: {
       state: "Cape Town",
@@ -469,29 +477,5 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
   }
 ];
 
-interface Address {
-  state: string;
-  city: string;
-  country: string;
-}
-
-interface Offers {
-  bed: string;
-  shower: string;
-  occupants: string;
-}
-
-
-export interface PropertyProps {
-     name: string;
-  address: Address;
-  rating: number;
-  category: string[];
-  price: number;
-  offers: Offers;
-  image: string;
-  discount: string;
-
-}
 
 export const BACKGROUND_IMAGE = "/assets/bg.png";

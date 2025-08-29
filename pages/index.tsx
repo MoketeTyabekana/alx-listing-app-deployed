@@ -1,19 +1,16 @@
 import React from "react";
 import { BACKGROUND_IMAGE, BUTTON_TEXT } from "@/constants/index";
 import Button from "@/components/common/Button";
-import Card from "@/components/common/Card";
-import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import PropertyCard from "@/components/property/PropertyCard";
-
+import PropertyCard from "@/components/common/Card";
+import { PropertyProps } from "@/interfaces";
 
 export default function Home() {
-
-   const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<PropertyProps[]>([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchProperties = async () => {
       try {
         const response = await axios.get("/api/properties");
@@ -82,25 +79,23 @@ useEffect(() => {
           />
         </div>
         <div className="flex-2/5 flex justify-end gap-2">
-         <Button
-   label={BUTTON_TEXT.filter}
-   variant="secondary"
-   onClick={() => console.log("All clicked!")}
- />
-  <Button
-   label={BUTTON_TEXT.sortByHighestPrice}
-   variant="secondary"
-   onClick={() => console.log("All clicked!")}
-/>
-  
-
+          <Button
+            label={BUTTON_TEXT.filter}
+            variant="secondary"
+            onClick={() => console.log("All clicked!")}
+          />
+          <Button
+            label={BUTTON_TEXT.sortByHighestPrice}
+            variant="secondary"
+            onClick={() => console.log("All clicked!")}
+          />
         </div>
       </section>
-<div className="grid grid-cols-3 gap-4">
-      {properties.map((property) => (
-        <PropertyCard key={property.id} property={property} />
-      ))}
-    </div>
+      <div className="grid grid-cols-3 gap-4">
+           {properties.map((property) => (
+             <PropertyCard key={property.id} property={property} />
+           ))}
+         </div>
     </main>
   );
 }
