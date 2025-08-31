@@ -8,7 +8,7 @@ export interface CardProps {
   bathrooms: number;
   number_of_guests: string; 
   rating: number;
-  features: string[];
+  features?: string[];
 }
 
 export interface ButtonProps {

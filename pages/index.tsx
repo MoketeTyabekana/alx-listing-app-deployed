@@ -3,7 +3,7 @@ import { BACKGROUND_IMAGE, BUTTON_TEXT } from "@/constants/index";
 import Button from "@/components/common/Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import PropertyCard from "@/components/common/Card";
+import Card from "@/components/common/Card";
 import { PropertyProps } from "@/interfaces";
 
 export default function Home() {
@@ -91,11 +91,22 @@ export default function Home() {
           />
         </div>
       </section>
-      <div className="grid grid-cols-3 gap-4">
-           {properties.map((property) => (
-             <PropertyCard key={property.id} property={property} />
-           ))}
-         </div>
+      <div className="grid grid-cols-4 gap-4 mt-10">
+        {properties.map((property) => (
+          <Card
+            key={property.id}
+            title={property.name}
+            price_perNight={property.price}
+            city={property.address.city}
+            image={property.image}
+            bedrooms={Number(property.offers.bed)}
+            bathrooms={Number(property.offers.shower)}
+            number_of_guests={String(property.offers.occupants)}
+            rating={property.rating}
+            features={property.category}
+          />
+        ))}
+      </div>
     </main>
   );
 }
