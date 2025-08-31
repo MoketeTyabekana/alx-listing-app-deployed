@@ -36,16 +36,42 @@ interface Offers {
   occupants: string;
 }
 
+export interface Review {
+  date: string;
+  period: string;
+  trip: string;
+  user: string;
+  avatar?: string;
+  comment: string;
+  rating: number;
+  
+}
+
 
 export interface PropertyProps {
-  id: string | number;
-     name: string;
-  address: Address;
-  rating: number;
-  category: string[];
+ id?:number | string;
+  name: string;
   price: number;
-  offers: Offers;
-  image: string;
-  discount: string;
+  rating: number;
+  address: {
+    state?: string;
+    city: string;
+    country: string;
+  };
+   images?: {
+    main: string;
+    others: string[];
+  };
+  reviews?: Review[];
+  description: string;
+  category: string[];
+  bedrooms: number;
+  bathrooms: number;
+  number_of_guests: string;
+  features: string[];
+  discount?: string;
+  offers?: Offers;
+  image?: string; 
+  // published:Date;
 
 }
