@@ -1,12 +1,11 @@
 import { useState } from "react";
-import vector from "@/public/assets/Vector.png";
+
 import { BUTTON_TEXT } from "@/constants/index";
 import Button from "../common/Button";
 import { useRouter } from 'next/router';
 
 
 import {
-  search,
   Mail,
   Home,
   Castle,
