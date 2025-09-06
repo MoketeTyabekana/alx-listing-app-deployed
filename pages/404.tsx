@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { FaHome } from 'react-icons/fa'; 
+
 import Button from '@/components/common/Button';
 import { useRouter } from 'next/router';
 import { BUTTON_TEXT } from '@/constants';

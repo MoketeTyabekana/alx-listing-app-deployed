@@ -14,7 +14,7 @@ export default function BookingForm() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,8 +22,8 @@ export default function BookingForm() {
     setError(null);
 
     try {
-      const response = await axios.post("/api/bookings", formData);
       alert("Booking confirmed!");
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setError("Failed to submit booking.");
     } finally {

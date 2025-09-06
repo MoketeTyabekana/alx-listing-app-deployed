@@ -3,7 +3,6 @@ import Link from "next/link";
 import { CardProps } from "@/interfaces";
 import Image from "next/image";
 import { Star } from "lucide-react";
-import Pill from "@/components/common/Pill";
 import { BedDouble, Bath, Users } from "lucide-react";
 
 
@@ -18,7 +17,6 @@ const Card = ({
   number_of_guests,
   rating,
   features,
-  children,
 }: CardProps & { id: string; children?: React.ReactNode }) => (
   <Link href={`/property/${id}`} passHref legacyBehavior>
     <a style={{ textDecoration: "none", color: "inherit" }}>
@@ -33,7 +31,7 @@ const Card = ({
 
         {/* Property Features */}
         <div className="flex justify-between my-2">
-          {features.map((feature, index) => (
+          {features?.map((feature, index) => (
             <p
               key={index}
               className="bg-gray-50 rounded-full px-4 py-2 text-gray-700 text-[12px]"
