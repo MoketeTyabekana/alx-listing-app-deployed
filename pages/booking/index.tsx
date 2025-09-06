@@ -1,17 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 
-export default function BookingForm() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    cardNumber: "",
-    expirationDate: "",
-    cvv: "",
-    billingAddress: "",
-  });
+  // Form data state removed as it was unused
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
