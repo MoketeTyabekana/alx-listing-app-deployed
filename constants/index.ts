@@ -114,7 +114,7 @@ export const UI_TEXT = {
 
 export const PROPERTYLISTINGSAMPLE: PropertyProps[] = [
   {
-    
+   
     name: "Villa Ocean Breeze",
     address: {
       state: "Seminyak",

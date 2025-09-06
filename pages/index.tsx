@@ -95,6 +95,7 @@ export default function Home() {
         {properties.map((property) => (
           <Card
             key={property.id}
+            id={property.id}
             title={property.name}
             price_perNight={property.price}
             city={property.address.city}
