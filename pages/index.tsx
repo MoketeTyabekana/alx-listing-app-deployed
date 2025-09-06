@@ -1,22 +1,19 @@
 import React from "react";
-import { BACKGROUND_IMAGE, BUTTON_TEXT } from "@/constants/index";
+import { BACKGROUND_IMAGE, BUTTON_TEXT, API_BASE_URL } from "@/constants/index";
 import Button from "@/components/common/Button";
-import Card from "@/components/common/Card";
-import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import PropertyCard from "@/components/property/PropertyCard";
-
+import Card from "@/components/common/Card";
+import { PropertyProps } from "@/interfaces";
 
 export default function Home() {
-
-   const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState<PropertyProps[]>([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get("/api/properties");
+  const response = await axios.get(`${API_BASE_URL}/api/properties`);
         setProperties(response.data);
       } catch (error) {
         console.error("Error fetching properties:", error);
@@ -82,25 +79,35 @@ useEffect(() => {
           />
         </div>
         <div className="flex-2/5 flex justify-end gap-2">
-         <Button
-   label={BUTTON_TEXT.filter}
-   variant="secondary"
-   onClick={() => console.log("All clicked!")}
- />
-  <Button
-   label={BUTTON_TEXT.sortByHighestPrice}
-   variant="secondary"
-   onClick={() => console.log("All clicked!")}
-/>
-  
-
+          <Button
+            label={BUTTON_TEXT.filter}
+            variant="secondary"
+            onClick={() => console.log("All clicked!")}
+          />
+          <Button
+            label={BUTTON_TEXT.sortByHighestPrice}
+            variant="secondary"
+            onClick={() => console.log("All clicked!")}
+          />
         </div>
       </section>
-<div className="grid grid-cols-3 gap-4">
-      {properties.map((property) => (
-        <PropertyCard key={property.id} property={property} />
-      ))}
-    </div>
+      <div className="grid grid-cols-4 gap-4 mt-10">
+        {properties.map((property) => (
+          <Card
+            key={property.id}
+            id={property.id}
+            title={property.name}
+            price_perNight={property.price}
+            city={property.address.city}
+            image={property.image}
+            bedrooms={Number(property.offers.bed)}
+            bathrooms={Number(property.offers.shower)}
+            number_of_guests={String(property.offers.occupants)}
+            rating={property.rating}
+            features={property.category}
+          />
+        ))}
+      </div>
     </main>
   );
 }
