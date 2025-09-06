@@ -90,6 +90,7 @@ const PropertyDetail: React.FC<{ property: PropertyProps }> = ({
       </div>
     </div>
   );
+  
 };
  
 const Description: React.FC<{property:PropertyProps}> = ({ property }) => {
@@ -138,6 +139,8 @@ const Description: React.FC<{property:PropertyProps}> = ({ property }) => {
     </div>
   );
 };
+
+
 
 export default PropertyDetail;
 export { Description };
