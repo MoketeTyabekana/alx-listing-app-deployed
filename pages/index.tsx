@@ -94,15 +94,15 @@ export default function Home() {
       <div className="grid grid-cols-4 gap-4 mt-10">
         {properties.map((property) => (
           <Card
-            key={property.id}
-            id={property.id}
+            key={String(property.id)}
+            id={String(property.id)}
             title={property.name}
             price_perNight={property.price}
             city={property.address.city}
-            image={property.image}
-            bedrooms={Number(property.offers.bed)}
-            bathrooms={Number(property.offers.shower)}
-            number_of_guests={String(property.offers.occupants)}
+            image={property.image ?? ""}
+            bedrooms={Number(property.offers?.bed)}
+            bathrooms={Number(property.offers?.shower)}
+            number_of_guests={String(property.offers?.occupants)}
             rating={property.rating}
             features={property.category}
           />
